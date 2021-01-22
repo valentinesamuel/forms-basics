@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { deflateRaw } from 'zlib';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { deflateRaw } from 'zlib';
 })
 export class AppComponent {
   @ViewChild('form') detialsForm: NgForm;
-
+  defaultQuestion = "teacher"
 
   onSubmit(data: NgForm) {
     console.log(data);
