@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { deflateRaw } from 'zlib';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'forms-basics';
+  @ViewChild('form') detialsForm: NgForm;
+
+
+  onSubmit(data: NgForm) {
+    console.log(data);
+
+  }
 }
