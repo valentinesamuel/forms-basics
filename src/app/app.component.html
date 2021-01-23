@@ -8,7 +8,7 @@
       />
     </div>
     <div class="col-lg-6 px-5">
-      <form (ngSubmit)="onSubmit(username)" #form="ngForm">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
         <h2 id="consult" class="mt-5 mb-4">Request a Free Consultation</h2>
         <div
           class="form-row pt-5"
@@ -85,6 +85,8 @@
             type="checkbox"
             name="flexRadioDefault"
             id="flexRadioDefault1"
+            [value]="agreed"
+            #agreement="ngModel"
             ngModel
           />
           <label class="form-check-label" for="flexRadioDefault1">
@@ -97,7 +99,7 @@
 
         <button
           type="submit"
-          [disabled]="!userData.valid && userData.touched "
+          [disabled]="!userData.valid && userData.touched"
           class="btn my-5 btn-primary btn-lg btn-block"
         >
           Book Free Consultation
