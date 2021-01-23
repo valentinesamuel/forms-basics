@@ -11,7 +11,6 @@ export class AppComponent {
   defaultQuestion = "teacher"
 
   onSubmit(data: NgForm) {
-    console.log(data);
-
+   
   }
 }

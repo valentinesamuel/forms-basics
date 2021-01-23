@@ -85,6 +85,7 @@
             type="checkbox"
             name="flexRadioDefault"
             id="flexRadioDefault1"
+            ngModel
           />
           <label class="form-check-label" for="flexRadioDefault1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
@@ -96,7 +97,7 @@
 
         <button
           type="submit"
-          [disabled]="!userData.valid && userData.touched"
+          [disabled]="!userData.valid && userData.touched "
           class="btn my-5 btn-primary btn-lg btn-block"
         >
           Book Free Consultation
