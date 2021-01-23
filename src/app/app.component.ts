@@ -11,6 +11,9 @@ export class AppComponent {
   defaultQuestion = "teacher"
 
   onSubmit(data: NgForm) {
-   
+    console.log(this.detialsForm.value.userData.username);
+    console.log(this.detialsForm.value.userData.email);
+    console.log(this.detialsForm.value.secret);
+
   }
 }
