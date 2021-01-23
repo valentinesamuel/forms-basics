@@ -10,7 +10,7 @@ export class AppComponent {
   @ViewChild('form') detialsForm: NgForm;
   defaultQuestion = "teacher"
 
-  onSubmit(data: NgForm) {
+  onSubmit() {
     console.log(this.detialsForm.value.userData.username);
     console.log(this.detialsForm.value.userData.email);
     console.log(this.detialsForm.value.secret);
