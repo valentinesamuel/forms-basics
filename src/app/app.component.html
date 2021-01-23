@@ -85,8 +85,6 @@
             type="checkbox"
             name="flexRadioDefault"
             id="flexRadioDefault1"
-            [value]="agreed"
-            #agreement="ngModel"
             ngModel
           />
           <label class="form-check-label" for="flexRadioDefault1">
@@ -107,4 +105,10 @@
       </form>
     </div>
   </div>
+</div>
+
+<div class="container">
+  <p>Your name is {{ user.userName }}</p>
+  <p>Your Email is {{ user.mail }}</p>
+  <p>Your Secret Question is {{ user.secretQuestion }}</p>
 </div>
