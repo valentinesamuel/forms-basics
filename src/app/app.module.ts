@@ -4,10 +4,12 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,8 @@ export class AppComponent {
 
   }
 
+
+  
   onSubmit() {
     this.user = {
       userName: this.detialsForm.value.userData.username,
@@ -26,7 +28,7 @@ export class AppComponent {
 
     // console.log(this.detialsForm.value.userData.username);
     // console.log(this.detialsForm.value.userData.email);
-    // console.log(this.detialsForm.value.secret);
+     console.log(this.detialsForm.value);
     if (!this.detialsForm.value.flexRadioDefault) {
       alert('Please check the box to continue');
     } else {
