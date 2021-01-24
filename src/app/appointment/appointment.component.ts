@@ -27,6 +27,7 @@ export class AppointmentComponent implements OnInit {
         userMail: entryData['email'],
         userQuestion: entryData['secret'],
       }
+      //implement can deactivate guard here
       console.log(this.userCopied = { ...this.user })
 
     });
