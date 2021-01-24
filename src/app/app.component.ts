@@ -27,8 +27,7 @@ export class AppComponent {
       secretQuestion: this.detialsForm.value.secret,
     }
     this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
-    // console.log(this.detialsForm.value.userData.username);
-    // console.log(this.detialsForm.value.userData.email);
+  
     console.log(this.detialsForm.value);
     if (!this.detialsForm.value.flexRadioDefault) {
       alert('Please check the box to continue');

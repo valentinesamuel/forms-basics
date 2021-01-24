@@ -27,8 +27,9 @@ export class AppointmentComponent implements OnInit {
         userMail: entryData['email'],
         userQuestion: entryData['secret'],
       }
-      
-    })
+      console.log(this.userCopied = { ...this.user })
+
+    });
 
   }
 
