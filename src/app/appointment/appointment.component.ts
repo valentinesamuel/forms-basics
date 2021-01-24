@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-appointment',
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
+  user = {
+    userName: "",
+    userMail: "",
+    userQuestion: "",
+  }
 
-  constructor() { }
+  userCopied = {
+    userName: "",
+    userMail: "",
+    userQuestion: "",
+  }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.params.subscribe((entryData: Params) => {
+      this.user = {
+        userName: entryData['username'],
+        userMail: entryData['email'],
+        userQuestion: entryData['secret'],
+      }
+      
+    })
+
   }
 
 }

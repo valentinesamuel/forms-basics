@@ -15,7 +15,6 @@ export class AppComponent {
     userName: "",
     mail: "",
     secretQuestion: "",
-
   }
 
   constructor(private router: Router,
