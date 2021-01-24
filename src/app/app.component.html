@@ -70,6 +70,7 @@
             type="checkbox"
             name="flexRadioDefault"
             id="flexRadioDefault1"
+            #agreement="ngModel"
             ngModel
           />
           <label class="form-check-label" for="flexRadioDefault1">
@@ -80,6 +81,7 @@
           </label>
         </div>
 
+        <!-- correct the logic for the disabled button -->
         <button
           type="submit"
           [disabled]="!userData.valid && userData.touched"
