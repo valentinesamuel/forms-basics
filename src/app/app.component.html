@@ -84,7 +84,11 @@
         <!-- correct the logic for the disabled button -->
         <button
           type="submit"
-          [disabled]="true"
+          [disabled]="
+            (!userData.valid && userData.touched) ||
+            agreement.value == '' ||
+            (agreement.value == 'false' && agreement.touched)
+          "
           class="btn my-5 btn-primary btn-lg btn-block"
         >
           Book Free Consultation
