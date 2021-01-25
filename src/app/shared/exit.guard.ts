@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Component, Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
+
+export interface FormDeactivateGuard {
+  canLeave: () => boolean | Promise<boolean> | Observable<boolean>;
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExitGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+export class ExitGuard implements CanDeactivate<FormDeactivateGuard> {
+  canDeactivate(component: FormDeactivateGuard, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot): boolean | Promise<boolean> | Observable<boolean> {
+    return component.canLeave();
   }
-  
 }

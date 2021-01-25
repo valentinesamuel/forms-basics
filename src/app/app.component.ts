@@ -26,7 +26,7 @@ export class AppComponent {
       mail: this.detialsForm.value.userData.email,
       secretQuestion: this.detialsForm.value.secret,
     }
-    this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
+    this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion]);
 
   }
 }

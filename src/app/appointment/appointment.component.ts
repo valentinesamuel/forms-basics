@@ -34,4 +34,8 @@ export class AppointmentComponent implements OnInit {
 
   }
 
+
+
+  canLeave() { }
+
 }
