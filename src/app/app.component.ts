@@ -21,20 +21,12 @@ export class AppComponent {
     private route: ActivatedRoute) { }
 
   onSubmit() {
-    // this.user = {
-    //   userName: this.detialsForm.value.userData.username,
-    //   mail: this.detialsForm.value.userData.email,
-    //   secretQuestion: this.detialsForm.value.secret,
-    // }
-    // this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
-
-    // console.log(this.detialsForm.value);
-    // if (!this.detialsForm.value.flexRadioDefault) {
-    //   alert('Please check the box to continue');
-    // } else {
-    //   console.log(this.detialsForm.value.flexRadioDefault);
-    // }
-    console.log(this.agreementBox);
+    this.user = {
+      userName: this.detialsForm.value.userData.username,
+      mail: this.detialsForm.value.userData.email,
+      secretQuestion: this.detialsForm.value.secret,
+    }
+    this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
 
   }
 }
