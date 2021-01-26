@@ -28,7 +28,7 @@ export class AppointmentComponent implements OnInit {
         userQuestion: entryData['secret'],
       }
       //implement can deactivate guard here
-      console.log(this.userCopied = { ...this.user })
+      this.userCopied = { ...this.user }
 
     });
 
@@ -36,6 +36,15 @@ export class AppointmentComponent implements OnInit {
 
 
 
-  canLeave() { }
+  canLeave() {
+    if (confirm('leaving the appointment component')) {
+      return true;
+    } else {
+      console.log('false');
+      return false;
+    }
+
+
+  }
 
 }
