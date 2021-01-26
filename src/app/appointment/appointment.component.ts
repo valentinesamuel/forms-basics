@@ -35,8 +35,7 @@ export class AppointmentComponent implements OnInit {
     if (confirm('You are about leaving the current eoute')) {
       return true;
     } else {
-      console.log('false');
-      //   return false;
+      return false;
     }
 
   }
