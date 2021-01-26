@@ -13,11 +13,7 @@ export class AppointmentComponent implements OnInit {
     userQuestion: "",
   }
 
-  userCopied = {
-    userName: "",
-    userMail: "",
-    userQuestion: "",
-  }
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -27,9 +23,7 @@ export class AppointmentComponent implements OnInit {
         userMail: entryData['email'],
         userQuestion: entryData['secret'],
       }
-      //implement can deactivate guard here
-      this.userCopied = { ...this.user }
-
+      
     });
 
   }
