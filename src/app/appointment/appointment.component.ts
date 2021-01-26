@@ -37,13 +37,18 @@ export class AppointmentComponent implements OnInit {
 
 
   canLeave() {
-    if (confirm('leaving the appointment component')) {
+    // if (confirm('leaving the appointment component')) {
+    //   return true;
+    // } else {
+    //   console.log('false');
+    //   return false;
+    // }
+    if (confirm('leaving the appointment component') || this.user.userMail !== this.userCopied.userMail) {
       return true;
     } else {
       console.log('false');
-      return false;
+      //   return false;
     }
-
 
   }
 
