@@ -23,7 +23,7 @@ export class AppointmentComponent implements OnInit {
         userMail: entryData['email'],
         userQuestion: entryData['secret'],
       }
-      
+
     });
 
   }
@@ -31,8 +31,8 @@ export class AppointmentComponent implements OnInit {
 
 
   canLeave() {
-    
-    if (confirm('leaving the appointment component')) {
+
+    if (confirm('You are about leaving the current eoute')) {
       return true;
     } else {
       console.log('false');
