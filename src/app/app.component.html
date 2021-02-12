@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<div class="container">
+<div class="container" [ngClass]="{ userForm: sent === true }">
   <div class="row main-row mt-3">
     <div class="col-lg-6 img-container">
       <img
@@ -12,7 +12,7 @@
       <form (ngSubmit)="onSubmit()" #form="ngForm">
         <h2 id="consult" class="mt-5 mb-4">Request a Free Consultation</h2>
         <a routerLink="/">
-          <button class="btn btn-danger">Reset</button>
+          <button class="btn btn-danger" (click)="goingBack()">Go back</button>
         </a>
         <div
           class="form-row pt-5"
@@ -84,7 +84,6 @@
           </label>
         </div>
 
-        <!-- correct the logic for the disabled button -->
         <button
           type="submit"
           [disabled]="

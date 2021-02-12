@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent {
   @ViewChild('form') detialsForm: NgForm;
+  sent = false;
   defaultQuestion = "teacher";
   user = {
     userName: "",
@@ -27,7 +28,11 @@ export class AppComponent {
     }
     this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
 
+    this.detialsForm.reset();
+    this.sent = true;
+  }
+  goingBack() {
+    this.sent = false;
   }
 
- 
 }
