@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.reactiveForm);
+    console.log(this.reactiveForm)
     // this.user = {
     //   userName: this.detialsForm.value.userData.username,
     //   mail: this.detialsForm.value.userData.email,
