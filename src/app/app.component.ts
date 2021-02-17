@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.reactiveForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null),
+        'username': new FormControl(null, [Validators.required]),
         'email': new FormControl(null),
       }),
       'question': new FormControl('teacher'),
