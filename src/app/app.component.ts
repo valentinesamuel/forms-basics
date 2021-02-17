@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,8 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('form') detialsForm: NgForm;
+  reactiveForm: FormGroup;
   sent = false;
   defaultQuestion = "teacher";
   user = {
@@ -20,16 +21,27 @@ export class AppComponent {
   constructor(private router: Router,
     private route: ActivatedRoute) { }
 
-  onSubmit() {
-    this.user = {
-      userName: this.detialsForm.value.userData.username,
-      mail: this.detialsForm.value.userData.email,
-      secretQuestion: this.detialsForm.value.secret,
-    }
-    this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
+  ngOnInit() {
+    this.reactiveForm = new FormGroup({
+      'userData': new FormGroup({
+        'username': new FormControl(null),
+        'email': new FormControl(null),
+      }),
+      'question': new FormControl('teacher'),
+    });
+  }
 
-    this.detialsForm.reset();
-    this.sent = true;
+  onSubmit() {
+    console.log(this.reactiveForm);
+    // this.user = {
+    //   userName: this.detialsForm.value.userData.username,
+    //   mail: this.detialsForm.value.userData.email,
+    //   secretQuestion: this.detialsForm.value.secret,
+    // }
+    // this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
+
+    // this.detialsForm.reset();
+    // this.sent = true;
   }
   goingBack() {
     this.sent = false;

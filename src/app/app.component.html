@@ -99,48 +99,33 @@
       </form> -->
 
       <!-- Implement The reactive form approach -->
-      <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
         <h2 id="consult" class="mt-5 mb-4">Request a Free Consultation</h2>
         <a routerLink="/">
           <button class="btn btn-danger" (click)="goingBack()">Go back</button>
         </a>
-        <div
-          class="form-row pt-5"
-          id="user-data"
-          ngModelGroup="userData"
-          #userData="ngModelGroup"
-        >
-          <div class="form-group col-lg-12 pb-5">
+        <div class="form-row pt-2" id="user-data" formGroupName="userData">
+          <div class="form-group col-lg-12 pb-2">
             <label for="inputname">Name</label>
             <input
               type="text"
-              name="username"
               class="form-control"
               id="inputname"
-              ngModel
-              #username="ngModel"
-              required
+              formControlName="username"
             />
-            <span class="help-block" *ngIf="!username.valid && username.touched"
-              >Please enter a valid username</span
-            >
+            <span class="help-block">Please enter a valid username</span>
           </div>
 
-          <div class="form-group col-lg-12 pb-5">
+          <div class="form-group col-lg-12 pb-2">
             <label for="inputEmail">Email</label>
             <input
               type="email"
               id="inputEmail"
               class="form-control"
-              ngModel
-              name="email"
-              required
+              formControlName="email"
               email
-              #email="ngModel"
             />
-            <span class="help-block" *ngIf="!email.valid && email.touched"
-              >Please enter a valid email</span
-            >
+            <span class="help-block">Please enter a valid email</span>
           </div>
         </div>
 
@@ -149,7 +134,7 @@
           <select
             id="secret"
             class="form-control"
-            [ngModel]="defaultQuestion"
+            formControlName="question"
             name="secret"
           >
             <option value="pet">Your first Pet?</option>
@@ -157,32 +142,8 @@
           </select>
         </div>
 
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            name="flexRadioDefault"
-            id="flexRadioDefault1"
-            #agreement="ngModel"
-            ngModel
-          />
-          <label class="form-check-label" for="flexRadioDefault1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            soluta quia, beatae ea voluptas excepturi repudiandae!
-            Necessitatibus nostrum maiores repellendus voluptatum eveniet, in
-            deserunt corporis libero, vitae neque nam illo?
-          </label>
-        </div>
 
-        <button
-          type="submit"
-          [disabled]="
-            (!userData.valid && userData.touched) ||
-            agreement.value == '' ||
-            (agreement.value == 'false' && agreement.touched)
-          "
-          class="btn my-5 btn-warning btn-lg btn-block"
-        >
+        <button type="submit" class="btn my-5 btn-warning btn-lg btn-block">
           Book Free Consultation
         </button>
       </form>
