@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('form') detialsForm: NgForm;
+  // @ViewChild('form') detialsForm: NgForm;
   reactiveForm: FormGroup;
   sent = false;
   defaultQuestion = "teacher";
@@ -32,16 +32,23 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.reactiveForm.value);
-    // this.user = {
-    //   userName: this.detialsForm.value.userData.username,
-    //   mail: this.detialsForm.value.userData.email,
-    //   secretQuestion: this.detialsForm.value.secret,
-    // }
-    // this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
+    this.user = {
+      userName: this.reactiveForm.value.userData.username,
+      mail: this.reactiveForm.value.userData.email,
+      secretQuestion: this.reactiveForm.value.question,
+    }
+    // console.log(this.reactiveForm.value.question);
+
+    this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
 
     // this.detialsForm.reset();
     // this.sent = true;
+
+    // this.user = {
+    //   userName: this.reactiveForm.userData.username,
+    //   mail: this.reactiveForm.userData.email,
+    //   secretQuestion: reactiveForm.question
+    // }
   }
   goingBack() {
     this.sent = false;
