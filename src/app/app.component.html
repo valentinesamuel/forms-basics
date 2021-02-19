@@ -136,7 +136,7 @@
               class="help-block"
               *ngIf="
                 !reactiveForm.get('userData.email').valid &&
-                 reactiveForm.get('userData.email').touched
+                reactiveForm.get('userData.email').touched
               "
               >Please enter a valid email</span
             >
@@ -150,6 +150,24 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+
+        <div formArrayName="hobbies">
+          <h6>My Hobbies</h6>
+          <button type="button" class="btn btn-success" (click)="onAddHobby()">
+            Add Hobby
+          </button>
+
+          <div *ngFor="let hobbyControl of getControls(); let i = index">
+            <p class="hobby">Hobby {{ i }}</p>
+            <input
+              type="text"
+              [formControlName]="i"
+              id="hobby"
+              class="form-control"
+            />
+          </div>
+        </div>
+
         <div class="form-check">
           <input
             class="form-check-input"

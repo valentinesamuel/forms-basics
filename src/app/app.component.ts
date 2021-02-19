@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
     secretQuestion: "",
   }
 
+  getControls() {
+    return (<FormArray>this.reactiveForm.get('hobbies')).controls;
+  }
+
   constructor(private router: Router,
     private route: ActivatedRoute) { }
 
@@ -29,7 +33,13 @@ export class AppComponent implements OnInit {
       }),
       'question': new FormControl('teacher'),
       'agreement': new FormControl(null),
+      'hobbies': new FormArray([]),
     });
+  }
+
+  onAddHobby() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.reactiveForm.get('hobbies')).push(control);
   }
   onSubmit() {
     this.user = {
@@ -47,9 +57,12 @@ export class AppComponent implements OnInit {
     //   mail: this.reactiveForm.userData.email,
     //   secretQuestion: reactiveForm.question
     // }
+  console.log(this.reactiveForm.value);
   }
   goingBack() {
     this.sent = false;
   }
+
+
 
 }
