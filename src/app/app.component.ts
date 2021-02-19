@@ -28,19 +28,18 @@ export class AppComponent implements OnInit {
         'email': new FormControl(null),
       }),
       'question': new FormControl('teacher'),
+      'agreement': new FormControl(null),
     });
   }
-
   onSubmit() {
     this.user = {
       userName: this.reactiveForm.value.userData.username,
       mail: this.reactiveForm.value.userData.email,
       secretQuestion: this.reactiveForm.value.question,
     }
-    // console.log(this.reactiveForm.value.question);
 
+    console.log(this.reactiveForm.value.agreement);
     this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
-
     // this.detialsForm.reset();
     // this.sent = true;
 

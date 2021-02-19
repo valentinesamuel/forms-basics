@@ -145,15 +145,25 @@
 
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select
-            id="secret"
-            class="form-control"
-            formControlName="question"
-            name="secret"
-          >
+          <select id="secret" class="form-control" formControlName="question">
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="flexRadioDefault"
+            formControlName="agreement"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+            soluta quia, beatae ea voluptas excepturi repudiandae!
+            Necessitatibus nostrum maiores repellendus voluptatum eveniet, in
+            deserunt corporis libero, vitae neque nam illo?
+          </label>
         </div>
 
         <button type="submit" class="btn my-5 btn-warning btn-lg btn-block">
