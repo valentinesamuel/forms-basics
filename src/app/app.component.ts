@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.reactiveForm = new FormGroup({
       'userData': new FormGroup({
         'username': new FormControl(null, [Validators.required]),
-        'email': new FormControl(null),
+        'email': new FormControl(null, [Validators.required]),
       }),
       'question': new FormControl('teacher'),
       'agreement': new FormControl(null),
@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
       secretQuestion: this.reactiveForm.value.question,
     }
 
-    console.log(this.reactiveForm.value.agreement);
     this.router.navigate(['appointment', this.user.userName, this.user.mail, this.user.secretQuestion], { relativeTo: this.route });
     // this.detialsForm.reset();
     // this.sent = true;
