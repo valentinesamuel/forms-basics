@@ -166,7 +166,14 @@
           </label>
         </div>
 
-        <button type="submit" class="btn my-5 btn-warning btn-lg btn-block">
+        <button
+          type="submit"
+          [disabled]="
+            reactiveForm.get('agreement').value == '' ||
+            reactiveForm.get('agreement').pristine
+          "
+          class="btn my-5 btn-warning btn-lg btn-block"
+        >
           Book Free Consultation
         </button>
       </form>
