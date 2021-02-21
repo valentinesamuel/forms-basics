@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   // @ViewChild('form') detialsForm: NgForm;
   reactiveForm: FormGroup;
   sent = false;
+  takenUserNames = ['Musa', 'Tunde', 'Omonigho', 'Eshoka', 'Osakpolor']
   defaultQuestion = "teacher";
   user = {
     userName: "",
@@ -57,12 +58,16 @@ export class AppComponent implements OnInit {
     //   mail: this.reactiveForm.userData.email,
     //   secretQuestion: reactiveForm.question
     // }
-  console.log(this.reactiveForm.value);
+    console.log(this.reactiveForm.value);
   }
   goingBack() {
     this.sent = false;
   }
 
-
+  takenUsernames(control: FormControl): { [s: string]: boolean } {
+    if(this.takenUserNames.includes(control.value)){
+      return {alreadyChosen: true}
+    }
+  }
 
 }

@@ -2,11 +2,11 @@
 <div class="container" [ngClass]="{ userForm: sent === true }">
   <div class="row main-row mt-3">
     <div class="col-lg-6 img-container">
-      <img
+      <!-- <img
         src="https://images.unsplash.com/photo-1579341560277-4dfaddaf6e98?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
         alt="interior"
         class="img-fluid"
-      />
+      /> -->
     </div>
     <div class="col-lg-6 px-5">
       <!-- The rtemplate driven approach -->
@@ -120,6 +120,15 @@
                 reactiveForm.get('userData.username').touched
               "
               >Please enter a valid username</span
+            >
+            <span
+              class="help-block"
+              *ngIf="
+              reactiveForm.get('userData.username').touched &&
+                 
+                reactiveForm.get('userData.username').value < 5
+              "
+              >Your username must be more than 5 characters</span
             >
           </div>
 
