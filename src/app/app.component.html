@@ -112,19 +112,20 @@
               class="form-control"
               id="inputname"
               formControlName="username"
-         
             />
-            <span
+            <!-- <span
               class="help-block"
               *ngIf="
                 !reactiveForm.get('userData.username').valid &&
                 reactiveForm.get('userData.username').touched
               "
               >Please enter a valid username</span
-            >
+            > -->
             <span
               class="help-block"
-              *ngIf="!reactiveForm.get('userData.username').valid"
+              *ngIf="
+                reactiveForm.get('userData.username').hasError('minlength')
+              "
               >Your username must not be less than 3 characters</span
             >
           </div>
@@ -138,13 +139,20 @@
               formControlName="email"
               email
             />
-            <span
+            <!-- <span
               class="help-block"
               *ngIf="
                 !reactiveForm.get('userData.email').valid &&
                 reactiveForm.get('userData.email').touched
               "
               >Please enter a valid email</span
+            > -->
+            <span
+              class="help-block"
+              *ngIf="
+                reactiveForm.get('userData.email').hasError('emailIsForbidden')
+              "
+              >Please enter an unforbidden email</span
             >
           </div>
         </div>

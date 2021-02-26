@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { rejects } from 'assert';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +32,7 @@ export class AppComponent implements OnInit {
     this.reactiveForm = new FormGroup({
       'userData': new FormGroup({
         'username': new FormControl('', [Validators.required, Validators.minLength(3), this.takenUsernames.bind(this)]),
-        'email': new FormControl(null, [Validators.required]),
+        'email': new FormControl(null, [Validators.required], this.forbiddenEmails),
       }),
       'question': new FormControl('teacher'),
       'agreement': new FormControl(null),
@@ -70,6 +72,18 @@ export class AppComponent implements OnInit {
     if (this.takenUserNames.includes(control.value)) {
       return { alreadyChosen: true }
     }
+  }
+
+  forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value == "test@test.com") {
+          resolve({ 'emailIsForbidden': true });
+        } else
+          resolve(null);
+      }, 1000)
+    })
+    return promise;
   }
 
 }
