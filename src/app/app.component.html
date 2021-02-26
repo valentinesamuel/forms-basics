@@ -121,13 +121,7 @@
               "
               >Please enter a valid username</span
             >
-            <span
-              class="help-block"
-              *ngIf="
-              reactiveForm.get('userData.username').touched &&
-                 
-                reactiveForm.get('userData.username').value < 5
-              "
+            <span class="help-block" *ngIf=""
               >Your username must be more than 5 characters</span
             >
           </div>
