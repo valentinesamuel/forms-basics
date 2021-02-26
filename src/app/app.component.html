@@ -112,6 +112,7 @@
               class="form-control"
               id="inputname"
               formControlName="username"
+         
             />
             <span
               class="help-block"
@@ -121,8 +122,10 @@
               "
               >Please enter a valid username</span
             >
-            <span class="help-block" *ngIf=""
-              >Your username must be more than 5 characters</span
+            <span
+              class="help-block"
+              *ngIf="!reactiveForm.get('userData.username').valid"
+              >Your username must not be less than 3 characters</span
             >
           </div>
 

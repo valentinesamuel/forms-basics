@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.reactiveForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required]),
+        'username': new FormControl('', [Validators.required, Validators.minLength(3), this.takenUsernames.bind(this)]),
         'email': new FormControl(null, [Validators.required]),
       }),
       'question': new FormControl('teacher'),
@@ -58,15 +58,17 @@ export class AppComponent implements OnInit {
     //   mail: this.reactiveForm.userData.email,
     //   secretQuestion: reactiveForm.question
     // }
-    console.log(this.reactiveForm.value);
+
+    console.log(this.reactiveForm);
+
   }
   goingBack() {
     this.sent = false;
   }
 
   takenUsernames(control: FormControl): { [s: string]: boolean } {
-    if(this.takenUserNames.includes(control.value)){
-      return {alreadyChosen: true}
+    if (this.takenUserNames.includes(control.value)) {
+      return { alreadyChosen: true }
     }
   }
 
