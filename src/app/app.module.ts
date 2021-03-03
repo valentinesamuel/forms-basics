@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { ShortenPipe } from "./shorten.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,

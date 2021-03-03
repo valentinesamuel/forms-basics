@@ -1,7 +1,4 @@
-<ul>
-  <li *ngFor="let i of collection | slice: 1:5">{{ i }}</li>
-</ul>
-<h3>{{amount | currency: 'NGN'}}</h3>
+<h3>{{text|shorten}}</h3>
 <router-outlet></router-outlet>
 <div class="container" [ngClass]="{ userForm: sent === true }">
   <div class="row main-row mt-3">
