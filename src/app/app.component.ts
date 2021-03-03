@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  collection: string[] = ['a', 'b', 'c', 'd'];
+    amount = 21000;
   // @ViewChild('form') detialsForm: NgForm;
   reactiveForm: FormGroup;
   sent = false;
